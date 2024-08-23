@@ -1,5 +1,5 @@
 # Streamoscope
-The Streamoscope is a USB-3 data acquisition system designed for low-field MRI, but could be more generally used. It streams two channels at 60 megasamples per second with 14-bit precision and costs around $300 in parts. 
+The Streamoscope is a USB-3 data acquisition system designed for low-field MRI, but could be more generally used. It streams two channels at 60 megasamples per second with 14-bit precision and costs around $300 in parts. It can read in data with low latency and the limit of how much can be read is only limited by the RAM on your computer!
 
 ![Cost Diagram](./docs/images/cost_diagram.png)
 
