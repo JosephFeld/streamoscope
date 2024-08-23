@@ -1,0 +1,143 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "adc_lvds_afe_8channel",
+    "component_reference": "Opensource:user:adc_lvds:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../Streamoscope.gen/sources_1/ip/adc_lvds_afe_8channel",
+    "parameters": {
+      "component_parameters": {
+        "AdcChnls": [ { "value": "2", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcBits": [ { "value": "14", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcBitOrByteMode": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcMsbOrLsbFst": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcWireMode": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcFrmPattern": [ { "value": "0x3F80", "value_src": "user", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "AdcSampFreDiv2": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcDCLKFrequency": [ { "value": "420", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcFCLKFrequency": [ { "value": "60", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "CLKFBOUT_MULT_F": [ { "value": "2", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "CLKOUT1_DIVIDE": [ { "value": "14", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcSyncExtClk": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "AdcLaneInvert": [ { "value": "\"00000001\"", "value_src": "user", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
+        "Component_Name": [ { "value": "adc_lvds_afe_8channel", "resolve_type": "user", "usage": "all" } ]
+      },
+      "model_parameters": {
+        "AdcChnls": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcBits": [ { "value": "14", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcBitOrByteMode": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcMsbOrLsbFst": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcWireMode": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcFrmPattern": [ { "value": "0x3F80", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "AdcSampFreDiv2": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcDCLKFrequency": [ { "value": "420", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcFCLKFrequency": [ { "value": "60", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "CLKFBOUT_MULT_F": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "CLKOUT1_DIVIDE": [ { "value": "14", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcSyncExtClk": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "AdcLaneInvert": [ { "value": "\"00000001\"", "resolve_type": "generated", "format": "bitString", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "artix7" } ],
+        "BASE_BOARD_PART": [ { "value": "" } ],
+        "BOARD_CONNECTIONS": [ { "value": "" } ],
+        "DEVICE": [ { "value": "xc7a35t" } ],
+        "PACKAGE": [ { "value": "ftg256" } ],
+        "PREFHDL": [ { "value": "VERILOG" } ],
+        "SILICON_REVISION": [ { "value": "" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
+        "SPEEDGRADE": [ { "value": "-1" } ],
+        "STATIC_POWER": [ { "value": "" } ],
+        "TEMPERATURE_GRADE": [ { "value": "" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Flow" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../Streamoscope.gen/sources_1/ip/adc_lvds_afe_8channel" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "." } ],
+        "SWVERSION": [ { "value": "2023.2" } ],
+        "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "DCLK_p_pin": [ { "direction": "in" } ],
+        "DCLK_n_pin": [ { "direction": "in" } ],
+        "FCLK_p_pin": [ { "direction": "in" } ],
+        "FCLK_n_pin": [ { "direction": "in" } ],
+        "DATA_p_pin": [ { "direction": "in", "size_left": "1", "size_right": "0" } ],
+        "DATA_n_pin": [ { "direction": "in", "size_left": "1", "size_right": "0" } ],
+        "AdcSampClk": [ { "direction": "in" } ],
+        "AdcFrmClk": [ { "direction": "out" } ],
+        "AdcFrmClk2x": [ { "direction": "out" } ],
+        "AdcDataValid": [ { "direction": "out", "size_left": "7", "size_right": "0" } ],
+        "AdcDataCh0": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh1": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh2": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh3": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh4": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh5": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh6": [ { "direction": "out", "size_left": "15", "size_right": "0" } ],
+        "AdcDataCh7": [ { "direction": "out", "size_left": "15", "size_right": "0" } ]
+      },
+      "interfaces": {
+        "AdcSampClk": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "FREQ_HZ": [ { "value": "100000000", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_RESET": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "AdcSampClk" } ]
+          }
+        },
+        "AdcFrmClk": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "FREQ_HZ": [ { "value": "100000000", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_RESET": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "AdcFrmClk" } ]
+          }
+        },
+        "AdcFrmClk2x": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "master",
+          "parameters": {
+            "FREQ_HZ": [ { "value": "100000000", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_RESET": [ { "value": "", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "AdcFrmClk2x" } ]
+          }
+        }
+      }
+    }
+  }
+}
