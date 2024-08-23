@@ -608,7 +608,7 @@ set_property -name "vhdl_version" -value "vhdl_2k" -objects $obj
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/adc_lvds_afe_1/adc_lvds_afe_1.xci"]\
+ [file normalize "${origin_dir}/hdl/Streamoscope/ip/adc_lvds_afe_1/adc_lvds_afe_1.xci"]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -645,7 +645,7 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize ${origin_dir}/../Streamoscope/Streamoscope.srcs/constrs_1/imports/new/afe_r3_ft601_r2_8channel.xdc]"
+set file "[file normalize ${origin_dir}/hdl/Streamoscope/xdc/afe_r3_ft601_r2_8channel.xdc]"
 set file_imported [import_files -fileset constrs_1 [list $file]]
 set file "new/afe_r3_ft601_r2_8channel.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
