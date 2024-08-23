@@ -272,23 +272,25 @@ if { $obj != {} } {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/clk_wiz_au_afe_mig/clk_wiz_au_afe_mig.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/fifo_adc_to_ft601_big/fifo_adc_to_ft601_big.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/clk_wiz_ft601_please_work_diff_deg_1/clk_wiz_ft601_please_work_diff_deg_1.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/mig_7series_0/mig_7series_0.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/axi_vfifo_ctrl_ddr/axi_vfifo_ctrl_ddr.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/axis_data_fifo_afe_0/axis_data_fifo_afe_0.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/axis_data_fifo_afe_1/axis_data_fifo_afe_1.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/axis_data_fifo_afe_2/axis_data_fifo_afe_2.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/axis_data_fifo_afe_3/axis_data_fifo_afe_3.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/axis_data_fifo_afe_4/axis_data_fifo_afe_4.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/imports/sources_1/imports/cheaposcope/afe_to_opal_kelly_proper_board_files/afe_to_opal_kelly_proper_board_files.srcs/sources_1/imports/sources_1/new/bit_packer.sv"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/imports/sources_1/imports/cheaposcope/afe_to_opal_kelly_proper_board_files/afe_to_opal_kelly_proper_board_files.srcs/sources_1/imports/sources_1/new/bit_unpacker.sv"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/imports/sources_1/imports/cheaposcope/FT601_Shield/FT601_Shield.srcs/sources_1/new/ft601_bram_dumper_dead_simple.sv"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/imports/sources_1/new/top_level_afe_au_trigger_8channel.sv"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/ip/ila_8channel/ila_8channel.xci"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/imports/sources_1/new/top_level_stupid_ft601.sv"]\
- [file normalize "${origin_dir}/../Streamoscope/Streamoscope.srcs/sources_1/imports/sources_1/ip/mig_7series_0/mig_a.prj"]\
+ [file normalize "$origin_dir/ip/clk_wiz_au_afe_mig/clk_wiz_au_afe_mig.xci"]
+ [file normalize "$origin_dir/ip/fifo_adc_to_ft601_big/fifo_adc_to_ft601_big.xci"]
+ [file normalize "$origin_dir/ip/clk_wiz_ft601_please_work_diff_deg_1/clk_wiz_ft601_please_work_diff_deg_1.xci"]
+ [file normalize "$origin_dir/ip/mig_7series_0/mig_7series_0.xci"]
+ [file normalize "$origin_dir/ip/axi_vfifo_ctrl_ddr/axi_vfifo_ctrl_ddr.xci"]
+ [file normalize "$origin_dir/ip/axis_data_fifo_afe_0/axis_data_fifo_afe_0.xci"]
+ [file normalize "$origin_dir/ip/axis_data_fifo_afe_1/axis_data_fifo_afe_1.xci"]
+ [file normalize "$origin_dir/ip/axis_data_fifo_afe_2/axis_data_fifo_afe_2.xci"]
+ [file normalize "$origin_dir/ip/axis_data_fifo_afe_3/axis_data_fifo_afe_3.xci"]
+ [file normalize "$origin_dir/ip/axis_data_fifo_afe_4/axis_data_fifo_afe_4.xci"]
+ [file normalize "$origin_dir/src/bit_packer.sv"]
+ [file normalize "$origin_dir/src/bit_unpacker.sv"]
+ [file normalize "$origin_dir/src/ft601_bram_dumper_dead_simple.sv"]
+ [file normalize "$origin_dir/src/top_level_afe_au_trigger_8channel.sv"]
+ [file normalize "$origin_dir/ip/ila_8channel/ila_8channel.xci"]
+ [file normalize "$origin_dir/src/top_level_stupid_ft601.sv"]
+ [file normalize "$origin_dir/ip/mig_7series_0/mig_a.prj"]
+ [file normalize "$origin_dir/ip/adc_lvds_afe_1/adc_lvds_afe_1.xci"]
+ [file normalize "$origin_dir/xdc/afe_r3_ft601_r2_8channel.xdc"]
 ]
 set imported_files ""
 foreach f $files {
