@@ -1,7 +1,9 @@
 # streamoscope
 USB-3 streaming data acquisition system originally designed for low-field MRI
 
-# HDL Setup
+# Vivado Project Setup
+The FPGA design was made in [Vivado 2023.2](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2023-2.html). It is only necessary to use this if you need to modify the HDL on the FPGA. There is a provided FPGA configuration already.
+
 Open the Vivado GUI, go to the tcl console on the bottom, and cd into the streamoscope directory. Then run this command:
 
 ```
