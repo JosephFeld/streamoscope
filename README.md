@@ -1,13 +1,34 @@
 # Streamoscope
-USB-3 streaming data acquisition system originally designed for low-field MRI
+The Streamoscope is a USB-3 data acquisition system designed for low-field MRI, but could be more generally used. It streams two channels at 60 megasamples per second with 14-bit precision and costs around $300 in parts. 
+
+![Cost Diagram](./docs/images/cost_diagram.png)
+
+It reads in 8 channels of data from the [AFE5812 analog front end chip](https://www.ti.com/product/AFE5812) into an [Alchitry Au FPGA board](https://www.sparkfun.com/products/16527), which feeds it into an [FT601 FIFO-to-USB-3 Bridge](https://ftdichip.com/products/ft601q-b/) which can be read into [Python](https://www.python.org/). Due to bandwidth constraints of the FT601, it only streams two channels. However, more could be streamed with a modified FPGA design that decimates the signals or decreases their precision.
+
+![HDL Diagram](./docs/images/hdl_diagram.png)
+
+What follows are guides on how to access the various components of the system. To summarize them:
+
+* PCB design files from KiCad
+* Python code for reading in data from the FT601
+* Teensy code for configuring the AFE5812
+* How to configure the Alchitry Au FPGA
+* A Vivado project for the FPGA design
+
+
+
+# PCB
+
+The PCB design was done in [KiCad 8.0](https://www.kicad.org/) and can be found in ```streamoscope/hardware/kicad_design```. There are custom footprints used, which are accessible in this [library](https://github.com/JosephFeld/Handheld-MRI-Parts). Special thanks to [Lopfi for making the Alchitry Au footprint](https://github.com/Lopfi/alchitry-element-kicad).
+
 
 # Python Setup
 
-Streamoscope data can be read into Python, and this guide will walk through setting up the Jupyter Notebook example.
+Streamoscope data can be read into Python, and this guide will walk through setting up the Jupyter Notebook example. This uses Python 3, which can be downloaded [here](https://www.python.org/downloads/).
 
 ## Installing libusb
 
-First, we need to install libusb.
+First, we need to install [libusb](https://libusb.info/).
 
 ### MacOS
 
@@ -67,6 +88,19 @@ To plug the Teensy into the Streamoscope, connect these pins:
 
 And program the Teensy using the code in ```streamoscope\software\teensy_4_1_afe5812_config\teensy_4_1_afe5812_config.ino```. Every time the Teensy powers up, it reconfigures the AFE5812. 
 
+
+# Configuring Alchitry Au
+
+The Alchitry Au can be programmed using [Alchitry Loader](https://alchitry.com/alchitry-labs/) with the bitstreams found in ```streamoscope/fpga_configurations/```. It is also compatible with [openFPGALoader](https://github.com/trabucayre/openFPGALoader).
+
+There is also a JTAG port broken out which can be used with JTAG programmers like [this](https://digilent.com/shop/jtag-hs3-programming-cable/), which can enable use of the Vivado ILA.
+
+Here are descriptions of each bitstream:
+
+| Filename | Description |
+| ---------------- | ---------- |
+| teensy_triggered.bit  | Streams channels 1 and 3 with data validity set by GPIO_0 (active high). This is useful for individual spin echoes. |      
+| teensy_triggered_with_500ms_trigger_extension.bit | Streams channels 1 and 3 with data validity set by GPIO_0 (active high). Validity lasts an extra 500 milliseconds after GPIO_0 goes low. This is useful for fast imaging sequences. |
 
 
 # Vivado Project Setup
