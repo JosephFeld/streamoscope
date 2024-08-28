@@ -124,3 +124,5 @@ Then run this command in the Streamoscope tcl console to update the IP catalog:
 ```
 update_ip_catalog -rebuild
 ```
+
+If you're running on a version after 2023.2, you may need to update the IP versions. You can do that by navigating to Reports>Report IP Status. In the menu that pops up, select Upgrade Selected. 
