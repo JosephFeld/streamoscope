@@ -26,14 +26,14 @@ module AdcLVDS #(
     parameter AdcBitOrByteMode = 1, // 1 = BIT mode, 0 = BYTE mode
     parameter AdcMsbOrLsbFst = 1, // 1 = MSB first, 0 = LSB first
     parameter AdcWireMode = 2, // 1 = 1-wire, 2 = 2-wire
-    parameter AdcFrmPattern = 16'b0011111110000000,
+    parameter AdcFrmPattern = 16256, //16'b0011111110000000,
     parameter AdcSampFreDiv2 = 1,
     parameter AdcDCLKFrequency = 84,
     parameter AdcFCLKFrequency = 12,
     parameter CLKFBOUT_MULT_F = 12,
     parameter CLKOUT1_DIVIDE = 84,
     parameter AdcSyncExtClk = 0,
-    parameter AdcLaneInvert = 8'b00001100
+    parameter AdcLaneInvert = 12//8'b00001100
 )
 (
     input DCLK_p_pin,
