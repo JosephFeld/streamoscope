@@ -45,25 +45,16 @@ module top_level_afe_au_trigger_8channel (
                                 
                                 input wire [1:0] USB_GPIO,
                                 
-                                inout [5:0] GPIO
+                                inout [23:0] GPIO,
                                 
-//                                input wire [1:0] DATA_FLAGS, //for annotating data
-//                                                     //GPIO 2:3
-//                                input wire RESET_IN, //resets all FIFOs
-//                                                     //GPIO 1
-//                                input wire TRIGGER_IN //active high trigger to
-//                                                      //record data
-//                                                      //GPIO 0
+                                input wire TRIGGER_IN
                                     
                                 
 
     );
     
-//    assign COUPLED_SIGNALS = 0;
-    
     logic [1:0] DATA_FLAGS = 2'b00;
     logic RESET_IN = 0;
-    logic TRIGGER_IN = 1;
     
     logic clk_100mhz;
     logic clk_200mhz;
@@ -317,43 +308,6 @@ module top_level_afe_au_trigger_8channel (
         end
     end
     
-//    assign trigger_in_clean = 1;
-
-    assign data_flags_clean = DATA_FLAGS;
-    assign trigger_in_clean = TRIGGER_IN;
-    
-//    debouncer #(.CLK_PERIOD_NS(17),
-//                .DEBOUNCE_TIME_MS(5)
-//                    ) db1 (.clk_in(AdcFrmClk),
-//                          .rst_in(0),
-//                          .dirty_in(TRIGGER_IN),
-//                          .clean_out(trigger_in_clean));
-                          
-//    debouncer #(.CLK_PERIOD_NS(17),
-//                .DEBOUNCE_TIME_MS(5)
-//                    ) db2 (.clk_in(AdcFrmClk),
-//                          .rst_in(0),
-//                          .dirty_in(DATA_FLAGS[0]),
-//                          .clean_out(data_flags_clean[0]));
-                          
-//    debouncer #(.CLK_PERIOD_NS(17),
-//                .DEBOUNCE_TIME_MS(5)
-//                    ) db3 (.clk_in(AdcFrmClk),
-//                          .rst_in(0),
-//                          .dirty_in(DATA_FLAGS[1]),
-//                          .clean_out(data_flags_clean[1]));
-    
-//    always_ff @(posedge AdcFrmClk) begin
-//        trigger_in_delay[0] <= TRIGGER_IN;
-//        data_flags_delay[0] <= DATA_FLAGS;
-        
-//        trigger_in_delay[1] <= trigger_in_delay[0];
-//        data_flags_delay[1] <= data_flags_delay[0];
-        
-//        trigger_in_clean <= trigger_in_delay[1];
-//        data_flags_clean <= data_flags_delay[1];
-//    end
-    
     always_ff @(posedge ui_clk) begin
         reset_in_delay[0] <= RESET_IN;
         
@@ -429,22 +383,22 @@ module top_level_afe_au_trigger_8channel (
 //    end
     
     
-    assign GPIO[1] = 1;
+//    assign GPIO[1] = 1;
     
     logic rising_edge_trigger;
     logic prev_trigger_input;
     
-    assign rising_edge_trigger = GPIO[0] && ~prev_trigger_input;
+    assign rising_edge_trigger = TRIGGER_IN && ~prev_trigger_input;
     
     logic trigger_delayed;
     parameter TRIGGER_COOLDOWN = 30000000;
     logic [$clog2(TRIGGER_COOLDOWN+1)-1:0] trigger_delay_counter;
     
     always_ff @(posedge AdcFrmClk) begin
-        prev_trigger_input <= GPIO[0];
+        prev_trigger_input <= TRIGGER_IN;
         
         //trigger activated
-        if(GPIO[0]) begin
+        if(TRIGGER_IN) begin
             trigger_delayed <= 1;
             trigger_delay_counter <= 0;
         end else begin
@@ -458,8 +412,8 @@ module top_level_afe_au_trigger_8channel (
     
     always_comb begin
         //AFE to FIFO 0
-        s_axis_tdata_0 = {GPIO[0],  rising_edge_trigger, AdcDataCh2[13:0], GPIO[3:2], AdcDataCh0[13:0]};
-        s_axis_tvalid_0 = trigger_delayed;//GPIO[0];//GPIO[0];//AdcDataValid[0] && USB_GPIO[0];// || trigger_in_clean);// && waiter == 0;// && trigger_in_clean;
+        s_axis_tdata_0 = {TRIGGER_IN,  rising_edge_trigger, AdcDataCh2[13:0], GPIO[3:2], AdcDataCh0[13:0]};
+        s_axis_tvalid_0 = trigger_delayed;
         
     
         //FIFO 0 to packer
@@ -1150,20 +1104,23 @@ module top_level_afe_au_trigger_8channel (
 //        .probe5(s_axis_tready)
 //    );
 
-//    ila_8channel my_ila (
-//        .clk(AdcFrmClk), // input wire clk
+    ila_8channel my_ila (
+        .clk(AdcFrmClk), // input wire clk
     
     
-//        .probe0(AdcDataValid), // input wire [7:0]  probe0  
-//        .probe1(AdcDataCh0), // input wire [13:0]  probe1 
-//        .probe2(AdcDataCh1), // input wire [13:0]  probe2 
-//        .probe3(AdcDataCh2), // input wire [13:0]  probe3 
-//        .probe4(AdcDataCh3), // input wire [13:0]  probe4 
-//        .probe5(AdcDataCh4), // input wire [13:0]  probe5 
-//        .probe6(AdcDataCh5), // input wire [13:0]  probe6 
-//        .probe7(AdcDataCh6), // input wire [13:0]  probe7 
-//        .probe8(AdcDataCh7) // input wire [13:0]  probe8
-//    );
+        .probe0(AdcDataValid), // input wire [7:0]  probe0  
+        .probe1(AdcDataCh0), // input wire [13:0]  probe1 
+        .probe2(AdcDataCh1), // input wire [13:0]  probe2 
+        .probe3(AdcDataCh2), // input wire [13:0]  probe3 
+        .probe4(AdcDataCh3), // input wire [13:0]  probe4 
+        .probe5(AdcDataCh4), // input wire [13:0]  probe5 
+        .probe6(AdcDataCh5), // input wire [13:0]  probe6 
+        .probe7(AdcDataCh6), // input wire [13:0]  probe7 
+        .probe8(AdcDataCh7), // input wire [13:0]  probe8
+        .probe9(trigger_delayed),
+        .probe10(TRIGGER_IN),
+        .probe11(GPIO[7])
+    );
     
     
     clk_wiz_au_afe_mig my_clk_wiz_afe
