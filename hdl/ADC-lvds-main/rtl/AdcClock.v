@@ -110,7 +110,7 @@ wire clk_in2_clk_wiz_0;
     .DIVCLK_DIVIDE        (1),
     .CLKFBOUT_MULT_F      (CLKFBOUT_MULT_F),
     .CLKFBOUT_PHASE       (0.000),
-    .CLKFBOUT_USE_FINE_PS ("FALSE"),
+    .CLKFBOUT_USE_FINE_PS ("TRUE"),
     .CLKOUT0_DIVIDE_F     (CLKOUT0_DIVIDE_F),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
