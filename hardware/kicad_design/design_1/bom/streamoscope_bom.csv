@@ -2,7 +2,7 @@ Id,Designator,Footprint,Quantity,Designation,Supplier and ref,supplemental parts
 1,J7,PinHeader_1x32_P2.54mm_Vertical,1,Conn_01x32_Pin,https://www.mouser.com/ProductDetail/TE-Connectivity/3-826936-2?qs=xF5SkmKSM76zfahaczRa9A%3D%3D,,
 2,F1,Fuse_0402_1005Metric_Pad0.77x0.64mm_HandSolder,1,Fuse,https://www.mouser.com/ProductDetail/Littelfuse/043502.5KRHF?qs=PalBzRKzfnviFVYPMWoZ5g%3D%3D,,
 3,J16,PinHeader_1x16_P2.54mm_Vertical,1,Conn_01x16_Pin,https://www.mouser.com/ProductDetail/Amphenol-FCI/68024-116HLF?qs=C9AXj6SgtYUh%2FNWF9cqh4A%3D%3D,https://www.mouser.com/ProductDetail/Samtec/IDSS-16-D-20.00?qs=rU5fayqh%252BE0O0Dd9%252BPEI9Q%3D%3D,
-4,J15,AMPHENOL_12401899E412A,1,USB_C_Receptacle,https://www.mouser.com/ProductDetail/Amphenol-Commercial-Products/12401899E412A?qs=0lSvoLzn4L%2FxruERFi%2FtTg%3D%3D,,
+4,J15,UJ31-CH-G2-SMT-TR,1,USB_C_Receptacle,https://www.digikey.com/en/products/detail/cui-devices/UJ31-CH-G2-SMT-TR/8024063,,
 5,"C33,C31,C17,C16,C42,C29,C30,C44,C32,C55,C43",C_0402_1005Metric_Pad0.74x0.62mm_HandSolder,11,1u,https://www.mouser.com/ProductDetail/KYOCERA-AVX/KGM05AR51A105KH?qs=sGAEpiMZZMsh%252B1woXyUXj17cMikWvs6%2FOLf1Lx9KFIM%3D,,
 6,"R7,R8,R10,R15",R_0402_1005Metric_Pad0.72x0.64mm_HandSolder,4,10k,https://www.mouser.com/ProductDetail/TE-Connectivity-Holsworthy/RN73C1E10KBTD?qs=CXI0wBT1M2iAWhqqLC6L1g%3D%3D,,
 7,"C9,C35,C10,C11,C34,C12,C5,C13",C_0402_1005Metric_Pad0.74x0.62mm_HandSolder,8,15n,https://www.mouser.com/ProductDetail/KEMET/C0402C153K3RACTU?qs=ZP3UR5XsUoduxSHfolMWsA%3D%3D,,
