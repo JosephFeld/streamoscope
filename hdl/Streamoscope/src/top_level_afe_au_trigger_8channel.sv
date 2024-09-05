@@ -413,7 +413,7 @@ module top_level_afe_au_trigger_8channel (
     always_comb begin
         //AFE to FIFO 0
         s_axis_tdata_0 = {TRIGGER_IN,  rising_edge_trigger, AdcDataCh2[13:0], GPIO[3:2], AdcDataCh0[13:0]};
-        s_axis_tvalid_0 = trigger_delayed;
+        s_axis_tvalid_0 = TRIGGER_IN;//trigger_delayed;
         
     
         //FIFO 0 to packer
